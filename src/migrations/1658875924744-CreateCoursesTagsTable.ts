@@ -1,19 +1,19 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export class CreateTagsTable1658801942948 implements MigrationInterface {
+export class CreateCoursesTagsTablets1658875924744
+  implements MigrationInterface
+{
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'tags',
+        name: 'courses_tags',
         columns: [
           {
             name: 'id',
             type: 'uuid',
             isPrimary: true,
-          },
-          {
-            name: 'name',
-            type: 'varchar',
+            generationStrategy: 'uuid',
+            default: 'uuid_generate_v4()',
           },
           {
             name: 'created_at',
@@ -26,6 +26,6 @@ export class CreateTagsTable1658801942948 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('courses');
+    await queryRunner.dropTable('courses_tags');
   }
 }

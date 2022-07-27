@@ -6,11 +6,12 @@ services:
     entrypoint: .docker/entrypoint.sh
     container_name: cursonestjs-app
     ports:
-      - '3001:3000'
+      - '3306:3306'
     volumes:
       - .:/home/node/app
     depends_on:
       - db
+    tty: true  
 
   db:
     build: .docker/postgres

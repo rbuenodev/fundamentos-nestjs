@@ -20,7 +20,7 @@ export class CoursesService {
 
   async findOne(id: string): Promise<Course> {
     const course = await this.courseRepository.findOne({
-      where: { id: Number(id) },
+      where: { id: id },
       relations: ['tags'],
     });
 
@@ -46,7 +46,7 @@ export class CoursesService {
         updateCourseDto.tags.map((name) => this.preloadTagByName(name)),
       ));
     const course = await this.courseRepository.preload({
-      id: Number(id),
+      id: id,
       ...updateCourseDto,
       tags,
     });
@@ -59,7 +59,7 @@ export class CoursesService {
 
   async remove(id: string) {
     const course = await this.courseRepository.findOne({
-      where: { id: Number(id) },
+      where: { id: id },
     });
 
     if (!course) {

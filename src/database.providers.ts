@@ -1,7 +1,10 @@
 /* eslint-disable prettier/prettier */
 import { DataSource } from 'typeorm';
-import { CreateTagsTable } from './migrations/1658801942948-CreateTagsTable.ts';
-import { CreateCourseTable } from './migrations/1658801962610-CreateCourseTable.ts';
+import { CreateTagsTable1658801942948 } from './migrations/1658801942948-CreateTagsTable.ts';
+import { CreateCourseTable1658801962610 } from './migrations/1658801962610-CreateCourseTable';
+import { CreateCoursesTagsTablets1658875924744 } from './migrations/1658875924744-CreateCoursesTagsTable';
+import { AddCrousesIdToCoursesTagsTablets1658883893838 } from './migrations/1658883893838-AddCrousesIdToCoursesTagsTable';
+import { AddTagsIdsToCoursesTagsTable1658884718998 } from './migrations/1658884718998-AddTagsIdsToCoursesTagsTable';
 
 export const databaseProviders = [
   {
@@ -32,5 +35,11 @@ export const dataSource = new DataSource({
   database: 'cursonestjs',
   entities: [__dirname + '/../**/*.entity.js'],
   synchronize: false,
-  migrations: [CreateCourseTable, CreateTagsTable],
+  migrations: [
+    CreateCourseTable1658801962610,
+    CreateTagsTable1658801942948,
+    CreateCoursesTagsTablets1658875924744,
+    AddCrousesIdToCoursesTagsTablets1658883893838,
+    AddTagsIdsToCoursesTagsTable1658884718998,
+  ],
 });

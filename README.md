@@ -57,3 +57,5 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+npx typeorm migration:run -d dist/database.providers.js
