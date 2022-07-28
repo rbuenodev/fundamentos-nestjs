@@ -5,13 +5,13 @@ services:
     build: .
     entrypoint: .docker/entrypoint.sh
     container_name: cursonestjs-app
+    tty: true
     ports:
       - '3306:3306'
     volumes:
       - .:/home/node/app
     depends_on:
       - db
-    tty: true  
 
   db:
     build: .docker/postgres
@@ -25,6 +25,17 @@ services:
     environment:
       - POSTGRES_PASSWORD=docker
       - POSTGRES_DB=cursonestjs
+
+  dbtest:
+    build: .docker/postgres
+    container_name: cursonestjs-dbtest
+    restart: always
+    tty: true
+    ports:
+      - '5433:5432'
+    environment:
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=dbtest
 
   pgadmin:
     image: dpage/pgadmin4

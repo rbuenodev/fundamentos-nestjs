@@ -63,7 +63,7 @@ export class CoursesService {
     });
 
     if (!course) {
-      throw new NotFoundException(`Course id ${id} not foound`);
+      throw new NotFoundException(`Course id ${id} not found`);
     }
 
     return this.courseRepository.remove(course);

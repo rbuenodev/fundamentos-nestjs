@@ -24,12 +24,13 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+API created to learn NestJs fundamental techniques. 
 
 ## Installation
 
 ```bash
-$ npm install
+$ docker-compose up -d
+$ docker exec -it cursonestjs-app bash
 ```
 
 ## Running the app
@@ -57,5 +58,3 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
-
-npx typeorm migration:run -d dist/database.providers.js

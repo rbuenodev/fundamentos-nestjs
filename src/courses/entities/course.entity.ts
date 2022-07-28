@@ -26,12 +26,10 @@ export class Course {
   createdAt: Date;
 
   @BeforeInsert()
-  generatedId() {
-    console.log(this.id);
+  generatedId() {    
     if (this.id) {
       return;
     }
-    this.id = uuid();
-    console.log(this.id);
+    this.id = uuid();    
   }
 }
